@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>うるう年の計算</title>
 </head>
+
 <body>
     <!-- <button id="calc_button" onclick="caution()">うるう年計算</button> -->
     <button onclick="caution()">うるう年計算</button>
@@ -18,9 +20,9 @@
         const caution = () => {
             const y = prompt("西暦年を入れてください。");
             // alert(y + '年！')；
-            if (calc_leap(y) == true ) {
+            if (calc_leap(y) == true) {
                 r.textContent = y + '年はうるう年';
-            }　else {
+            } else {
                 r.textContent = y + '年はうるう年ではありません';
             }
         }
@@ -28,12 +30,20 @@
         const calc_leap = (year) => {
             // 数値に変換して判定
             const yNum = Number(year);
-            if(yNum == 2000) {
+            // if(yNum == 2000) {
+            //     return true;
+            // } else {
+            //     return false;
+            // }
+            if (year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) {
+                // console.log(`西暦${year}年はうるう年です`);
                 return true;
             } else {
+                // console.log(`西暦${year}年はうるう年ではありません`);
                 return false;
             }
         }
     </script>
 </body>
+
 </html>
